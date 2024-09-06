@@ -1,10 +1,16 @@
 
 const handleTimestamp = (dateString) => {
   
-    let date = dateString ? new Date(dateString) : new Date();
-  
-    if (!isNaN(dateString)) {
+    let date;
+
+    if (!dateString) {
+
+      date = new Date();
+    } else if (!isNaN(dateString)) {
+
       date = new Date(parseInt(dateString));
+    } else {
+      date = new Date(dateString);
     }
   
     if (date.toString() === 'Invalid Date') {
